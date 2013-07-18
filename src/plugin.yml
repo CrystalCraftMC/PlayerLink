@@ -3,6 +3,9 @@ main: com.crystalcraftmc.playerlink.Main
 version: 1.2.1
 
 commands:
+   playerlink:
+      description: Includes info and reloads.
+      usage: /playerlink <help, reload>
    website:
       description: Shows the link to a website you set.
       usage: /website
@@ -58,6 +61,7 @@ permissions:
     playerlink.player.*:
         description: Gives access to all commands for players.
         children:
+            playerlink.help: true
             playerlink.website: true
             playerlink.vote: true
             playerlink.shop: true
@@ -67,6 +71,9 @@ permissions:
             playerlink.instagram: true
             playerlink.link: true
             playerlink.reload: false
+    playerlink.help:
+        description: Show a list of commands for PlayerLink.
+        default: op
     playerlink.website:
         description: Shows the link to a website you set.
         default: op
