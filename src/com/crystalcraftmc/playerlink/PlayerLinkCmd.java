@@ -53,7 +53,7 @@ public class PlayerLinkCmd implements CommandExecutor
 	        	// If the sender of the command has this permission...
 	    		if(p.hasPermission("playerlink.help"))
 	    		{
-					p.sendMessage(ChatColor.GREEN + "Configuration Reloaded!");
+	    			
 	    		}
 	    		
 	    		// Otherwise, if the sender of the command doesn't have the permission...
