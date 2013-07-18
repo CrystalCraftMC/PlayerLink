@@ -63,9 +63,6 @@ public final class Main extends JavaPlugin
 		getCommand("link").setExecutor(new Link(this));
 		
 		// This will throw a NullPointerException if you don't have the command defined in your plugin.yml file!
-		getCommand("plreload").setExecutor(new Reload(this));
-		
-		// This will throw a NullPointerException if you don't have the command defined in your plugin.yml file!
 		getCommand("playerlink").setExecutor(new PlayerLinkCmd(this));
     }
  
