@@ -1,4 +1,7 @@
 name: PlayerLink
+description: PlayerLink is a Bukkit plugin designed to keep your players informed about your server.
+author: jflory7
+website: http://dev.bukkit.org/bukkit-plugins/playerlink/
 main: com.crystalcraftmc.playerlink.Main
 version: 1.2.1
 
