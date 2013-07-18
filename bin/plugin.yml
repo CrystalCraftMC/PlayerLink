@@ -46,11 +46,6 @@ commands:
       usage: /link
       permission: playerlink.link
       permission-message: You don't have <permission>
-   plreload:
-      description: Reload the configuration.
-      usage: /plreload
-      permission: playerlink.reload
-      permission-message: You don't have <permission>
 
 permissions:
     playerlink.*:

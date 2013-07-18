@@ -53,7 +53,7 @@ public class PlayerLinkCmd implements CommandExecutor
 	        	// If the sender of the command has this permission...
 	    		if(p.hasPermission("playerlink.help"))
 	    		{
-	    			
+	    			plugin.getDescription().getCommands();
 	    		}
 	    		
 	    		// Otherwise, if the sender of the command doesn't have the permission...
@@ -70,5 +70,4 @@ public class PlayerLinkCmd implements CommandExecutor
 	    // If this hasn't happened, a value of false will be returned.
 		return false;
 	}
-
 }
