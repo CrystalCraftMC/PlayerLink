@@ -53,7 +53,7 @@ public class PlayerLinkCmd implements CommandExecutor
 	        	// If the sender of the command has this permission...
 	    		if(p.hasPermission("playerlink.help"))
 	    		{
-	    			p.sendMessage(ChatColor.GOLD + "=-=-=-=-> " + ChatColor.YELLOW + "PlayerLink Commands" + ChatColor.GOLD + " <-=-=-=-=");
+	    			p.sendMessage(ChatColor.GOLD + "=-=-=-=-=-> " + ChatColor.YELLOW + "PlayerLink Commands" + ChatColor.GOLD + " <-=-=-=-=-=");
 	        		p.sendMessage(ChatColor.GOLD + "[" + ChatColor.YELLOW + "PL" + ChatColor.GOLD + "] " + ChatColor.RED + "/playerlink help: " + ChatColor.GOLD + "Shows commands in the plugin.");
 	        		p.sendMessage(ChatColor.GOLD + "[" + ChatColor.YELLOW + "PL" + ChatColor.GOLD + "] " + ChatColor.RED + "/website: " + ChatColor.GOLD + "Displays a link to the server website.");
 	        		p.sendMessage(ChatColor.GOLD + "[" + ChatColor.YELLOW + "PL" + ChatColor.GOLD + "] " + ChatColor.RED + "/vote: " + ChatColor.GOLD + "Displays a link to a voting website for this server.");
@@ -64,7 +64,7 @@ public class PlayerLinkCmd implements CommandExecutor
 	        		p.sendMessage(ChatColor.GOLD + "[" + ChatColor.YELLOW + "PL" + ChatColor.GOLD + "] " + ChatColor.RED + "/instagram: " + ChatColor.GOLD + "Displays a link to an Instagram page for this server.");
 	        		p.sendMessage(ChatColor.GOLD + "[" + ChatColor.YELLOW + "PL" + ChatColor.GOLD + "] " + ChatColor.RED + "/link: " + ChatColor.GOLD + "Displays a link to whatever an admin has set.");
 	        		p.sendMessage(ChatColor.GOLD + "[" + ChatColor.YELLOW + "PL" + ChatColor.GOLD + "] " + ChatColor.RED + "/playerlink reload: " + ChatColor.GOLD + "Reload the configuration.");
-	        		p.sendMessage(ChatColor.GOLD + "=-=-=-=-> " + ChatColor.YELLOW + "PlayerLink Commands" + ChatColor.GOLD + " <-=-=-=-=");
+	        		p.sendMessage(ChatColor.GOLD + "=-=-=-=-=-> " + ChatColor.YELLOW + "PlayerLink Commands" + ChatColor.GOLD + " <-=-=-=-=-=");
 	    		}
 	    		
 	    		// Otherwise, if the sender of the command doesn't have the permission...
