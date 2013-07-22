@@ -73,5 +73,3 @@ public final class Main extends JavaPlugin
     	getLogger().info("PlayerLink has been disabled!");
     }
 }
-
-// GitHub.com test
