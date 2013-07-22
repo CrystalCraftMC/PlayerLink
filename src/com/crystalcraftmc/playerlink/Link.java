@@ -34,9 +34,9 @@ public class Link implements CommandExecutor
 	    			sender.sendMessage("This command can only be run by a player.");
 	    		}
 	    		
-	    		p.sendMessage(ChatColor.GOLD + "=-=-=-=-> " + ChatColor.YELLOW + plugin.getConfig().getString("server-name") + "'s " + plugin.getConfig().getString("link.name") + ChatColor.GOLD + " <-=-=-=-=");
+	    		p.sendMessage(ChatColor.GOLD + "=-=-=-=-> " + ChatColor.YELLOW + plugin.getConfig().getString("server-name") + "'s " + plugin.getConfig().getString("link.name") + "!" + ChatColor.GOLD + " <-=-=-=-=");
 	    		p.sendMessage(ChatColor.GOLD + "[" + ChatColor.YELLOW + "PL" + ChatColor.GOLD + "] " + ChatColor.AQUA + plugin.getConfig().getString("link.url"));
-	    		p.sendMessage(ChatColor.GOLD + "=-=-=-=-> " + ChatColor.YELLOW + plugin.getConfig().getString("server-name") + "'s " + plugin.getConfig().getString("link.name") + ChatColor.GOLD + " <-=-=-=-=");
+	    		p.sendMessage(ChatColor.GOLD + "=-=-=-=-> " + ChatColor.YELLOW + plugin.getConfig().getString("server-name") + "'s " + plugin.getConfig().getString("link.name") + "!" + ChatColor.GOLD + " <-=-=-=-=");
 	    		if (plugin.getConfig().getBoolean("link.enable-broadcast"))
 	    		{
 	    			Bukkit.broadcastMessage(ChatColor.GREEN + p.getDisplayName() + ChatColor.GREEN + " used " + ChatColor.ITALIC + "/link " + ChatColor.RESET + ChatColor.GREEN + "to get the " + (plugin.getConfig().getString("link.name")) +  " link for " + (plugin.getConfig().getString("server-name")));
