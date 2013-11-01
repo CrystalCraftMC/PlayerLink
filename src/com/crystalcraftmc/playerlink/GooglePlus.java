@@ -35,9 +35,9 @@ public class GooglePlus implements CommandExecutor
 	    		}
 	    		
 	    		p.sendMessage(ChatColor.GOLD + "=-=-=-=-> " + ChatColor.YELLOW + plugin.getConfig().getString("server-name") + "'s Google+ page!" + ChatColor.GOLD + " <-=-=-=-=");
-	    		p.sendMessage(ChatColor.GOLD + "[" + ChatColor.YELLOW + "PL" + ChatColor.GOLD + "] " + ChatColor.AQUA + plugin.getConfig().getString("googleplus.url"));
+	    		p.sendMessage(ChatColor.GOLD + "[" + ChatColor.YELLOW + "PL" + ChatColor.GOLD + "] " + ChatColor.AQUA + plugin.getConfig().getString("google+.url"));
 	    		p.sendMessage(ChatColor.GOLD + "=-=-=-=-> " + ChatColor.YELLOW + plugin.getConfig().getString("server-name") + "'s Google+ page!" + ChatColor.GOLD + " <-=-=-=-=");
-	    		if (plugin.getConfig().getBoolean("googleplus.enable-broadcast"))
+	    		if (plugin.getConfig().getBoolean("google+.enable-broadcast"))
 	    		{
 	    			Bukkit.broadcastMessage(ChatColor.GREEN + p.getDisplayName() + ChatColor.GREEN + " used " + ChatColor.ITALIC + "/google+ " + ChatColor.RESET + ChatColor.GREEN + "to get the Google+ page for " + (plugin.getConfig().getString("server-name")));
 	    		}

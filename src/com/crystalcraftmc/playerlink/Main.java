@@ -35,7 +35,7 @@ public final class Main extends JavaPlugin
         {
         	// ...and if so, run the auto-update class.
         	@SuppressWarnings("unused")
-			Updater updater = new Updater(this, "playerlink", this.getFile(), Updater.UpdateType.DEFAULT, true);
+        	Updater updater = new Updater(this, 54020, this.getFile(), Updater.UpdateType.DEFAULT, true);
         }
         
 		getCommand("website").setExecutor(new Website(this));
