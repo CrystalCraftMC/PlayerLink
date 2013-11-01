@@ -6,20 +6,8 @@ website:
 vote:
   url: http://minecraft-server-list.com
   enable-broadcast: true
-forums:
-  url: http://crystalcraftmc.com/forum
-  enable-broadcast: true
 shop:
   url: http://buycraft.net
-  enable-broadcast: true
-voice:
-  url: http://mumble.info
-  enable-broadcast: true
-dynmap:
-  url: http://dev.bukkit.org/bukkit-plugins/dynmap
-  enable-broadcast: true
-wiki:
-  url: http://spigotmc.org/wiki
   enable-broadcast: true
 facebook:
   url: http://facebook.com
@@ -29,9 +17,6 @@ twitter:
   enable-broadcast: true
 youtube:
   url: http://youtube.com
-  enable-broadcast: true
-google+:
-  url: http://plus.google.com
   enable-broadcast: true
 instagram:
   url: http://instagram.com

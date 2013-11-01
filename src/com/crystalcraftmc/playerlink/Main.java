@@ -38,32 +38,31 @@ public final class Main extends JavaPlugin
 			Updater updater = new Updater(this, "playerlink", this.getFile(), Updater.UpdateType.DEFAULT, true);
         }
         
+		// This will throw a NullPointerException if you don't have the command defined in your plugin.yml file!
 		getCommand("website").setExecutor(new Website(this));
 		
+		// This will throw a NullPointerException if you don't have the command defined in your plugin.yml file!
 		getCommand("vote").setExecutor(new Vote(this));
 		
-		getCommand("forums").setExecutor(new Forums(this));
-		
+		// This will throw a NullPointerException if you don't have the command defined in your plugin.yml file!
 		getCommand("shop").setExecutor(new Shop(this));
 		
-		getCommand("voice").setExecutor(new Voice(this));
-		
-		getCommand("dynmap").setExecutor(new DynMap(this));
-		
-		getCommand("wiki").setExecutor(new Wiki(this));
-		
+		// This will throw a NullPointerException if you don't have the command defined in your plugin.yml file!
 		getCommand("Facebook").setExecutor(new Facebook(this));
 		
+		// This will throw a NullPointerException if you don't have the command defined in your plugin.yml file!
 		getCommand("Twitter").setExecutor(new Twitter(this));
 		
+		// This will throw a NullPointerException if you don't have the command defined in your plugin.yml file!
 		getCommand("YouTube").setExecutor(new YouTube(this));
 		
-		getCommand("Google+").setExecutor(new GooglePlus(this));
-		
+		// This will throw a NullPointerException if you don't have the command defined in your plugin.yml file!
 		getCommand("Instagram").setExecutor(new Instagram(this));
 		
+		// This will throw a NullPointerException if you don't have the command defined in your plugin.yml file!
 		getCommand("link").setExecutor(new Link(this));
 		
+		// This will throw a NullPointerException if you don't have the command defined in your plugin.yml file!
 		getCommand("playerlink").setExecutor(new PlayerLinkCmd(this));
     }
  
