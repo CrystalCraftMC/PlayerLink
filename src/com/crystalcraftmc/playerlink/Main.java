@@ -21,14 +21,10 @@ public final class Main extends JavaPlugin
 			// Failed to submit the stats :-(
 		}
 		
-		// ...generate the config.yml file.
-		this.saveDefaultConfig();
-		
-		// ...load the configuration file and copy the defaults into the plugin...
-		this.getConfig().options().copyDefaults(true);
-		
-		// ...and save the configuration file.
-        this.saveConfig();
+		// ..getting the config.yml and generating it.
+		config = getConfig();
+		saveDefaultConfig();
+		//...You can now use "config" intstead of getConfig() will return with warning not used till it's used.
         
         // ...see if the config file allows auto-updating...
         if (this.getConfig().getBoolean("auto-update"))
