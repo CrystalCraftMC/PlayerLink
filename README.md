@@ -1,7 +1,7 @@
 PlayerLink
 ==========
-Created by: jflory7
-==========
+
+### Created by: jflory7
 
 PlayerLink is a simple, lightweight plugin designed to make sharing URLs
 related to your server easier. With the mere typing of a command, a user
