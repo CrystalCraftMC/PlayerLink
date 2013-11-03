@@ -6,6 +6,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Main extends JavaPlugin
 {
+	private FileConfiguration config;
 	// When the plugin first starts...
 	@Override
     public void onEnable()
