@@ -2,19 +2,22 @@ package com.crystalcraftmc.playerlink;
 
 import java.io.IOException;
 
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Main extends JavaPlugin
 {
+	@SuppressWarnings("unused")
 	private FileConfiguration config;
+	
 	// When the plugin first starts...
 	@Override
     public void onEnable()
 	{
-        // TODO Insert logic to be performed when the plugin is enabled
+		// ...put a message in console confirming the plugin is enabled.
 		getLogger().info("PlayerLink has been enabled!");
 		
-		// ...link plugin with online stats.
+		// ...link the plugin with the online stats.
 		try {
 			Metrics metrics = new Metrics(this);
 			metrics.start();
@@ -22,10 +25,9 @@ public final class Main extends JavaPlugin
 			// Failed to submit the stats :-(
 		}
 		
-		// ..getting the config.yml and generating it.
+		// ...get the config.yml and generate it if it doesn't exist or has changed...
 		config = getConfig();
 		saveDefaultConfig();
-		//...You can now use "config" intstead of getConfig() will return with warning not used till it's used.
         
         // ...see if the config file allows auto-updating...
         if (this.getConfig().getBoolean("auto-update"))
