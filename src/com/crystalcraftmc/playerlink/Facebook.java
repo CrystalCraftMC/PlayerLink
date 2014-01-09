@@ -9,6 +9,8 @@ import org.bukkit.entity.Player;
 
 public class Facebook implements CommandExecutor
 {
+	private static long DAY_IN_MILLIS = 1000 * 60 * 60 * 24;
+	
 	Main plugin;
 	public Facebook(Main plugin)
 	{
@@ -39,7 +41,13 @@ public class Facebook implements CommandExecutor
 	    		p.sendMessage(ChatColor.GOLD + "=-=-=-=-> " + ChatColor.YELLOW + plugin.getConfig().getString("server-name") + "'s Facebook Page!" + ChatColor.GOLD + " <-=-=-=-=");
 	    		if (plugin.getConfig().getBoolean("facebook.enable-broadcast"))
 	    		{
-	    			Bukkit.broadcastMessage(ChatColor.GREEN + p.getDisplayName() + ChatColor.GREEN + " used " + ChatColor.ITALIC + "/facebook " + ChatColor.RESET + ChatColor.GREEN + "to get the Facebook page for " + (plugin.getConfig().getString("server-name")));
+	    			long last = plugin.getConfig().getLong("last-used.facebook" + sender.getName(), 0L);
+	    			long now = System.currentTimeMillis();
+	    			if ((now - last) > DAY_IN_MILLIS)
+	    			{
+	    				Bukkit.broadcastMessage(ChatColor.GREEN + p.getDisplayName() + ChatColor.GREEN + " used " + ChatColor.ITALIC + "/facebook " + ChatColor.RESET + ChatColor.GREEN + "to get the Facebook page for " + (plugin.getConfig().getString("server-name")));
+	    				plugin.getConfig().set("last-used.facebook" + sender.getName(), now);
+	    			}
 	    		}
 	    		// If this has happened, the function will return true. 
 	    		return true;

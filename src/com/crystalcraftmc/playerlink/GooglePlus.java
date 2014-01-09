@@ -9,6 +9,8 @@ import org.bukkit.entity.Player;
 
 public class GooglePlus implements CommandExecutor
 {
+	private static long DAY_IN_MILLIS = 1000 * 60 * 60 * 24;
+	
 	Main plugin;
 	public GooglePlus(Main plugin)
 	{
@@ -39,7 +41,13 @@ public class GooglePlus implements CommandExecutor
 	    		p.sendMessage(ChatColor.GOLD + "=-=-=-=-> " + ChatColor.YELLOW + plugin.getConfig().getString("server-name") + "'s Google+ page!" + ChatColor.GOLD + " <-=-=-=-=");
 	    		if (plugin.getConfig().getBoolean("google+.enable-broadcast"))
 	    		{
-	    			Bukkit.broadcastMessage(ChatColor.GREEN + p.getDisplayName() + ChatColor.GREEN + " used " + ChatColor.ITALIC + "/google+ " + ChatColor.RESET + ChatColor.GREEN + "to get the Google+ page for " + (plugin.getConfig().getString("server-name")));
+	    			long last = plugin.getConfig().getLong("last-used.google+" + sender.getName(), 0L);
+	    			long now = System.currentTimeMillis();
+	    			if ((now - last) > DAY_IN_MILLIS)
+	    			{
+	    				Bukkit.broadcastMessage(ChatColor.GREEN + p.getDisplayName() + ChatColor.GREEN + " used " + ChatColor.ITALIC + "/google+ " + ChatColor.RESET + ChatColor.GREEN + "to get the Google+ page for " + (plugin.getConfig().getString("server-name")));
+	    				plugin.getConfig().set("last-used.google+" + sender.getName(), now);
+	    			}
 	    		}
 	    		
 	    		// If this has happened, the function will return true. 

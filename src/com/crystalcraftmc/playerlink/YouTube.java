@@ -9,6 +9,8 @@ import org.bukkit.entity.Player;
 
 public class YouTube implements CommandExecutor
 {
+	private static long DAY_IN_MILLIS = 1000 * 60 * 60 * 24;
+	
 	Main plugin;
 	public YouTube(Main plugin)
 	{
@@ -39,7 +41,13 @@ public class YouTube implements CommandExecutor
 	    		p.sendMessage(ChatColor.GOLD + "=-=-=-=-> " + ChatColor.YELLOW + plugin.getConfig().getString("server-name") + "'s YouTube Page!" + ChatColor.GOLD + " <-=-=-=-=");
 	    		if (plugin.getConfig().getBoolean("youtube.enable-broadcast"))
 	    		{
-	    			Bukkit.broadcastMessage(ChatColor.GREEN + p.getDisplayName() + ChatColor.GREEN + " used " + ChatColor.ITALIC + "/youtube " + ChatColor.RESET + ChatColor.GREEN + "to get the YouTube page for " + (plugin.getConfig().getString("server-name")));
+	    			long last = plugin.getConfig().getLong("last-used.youtube" + sender.getName(), 0L);
+	    			long now = System.currentTimeMillis();
+	    			if ((now - last) > DAY_IN_MILLIS)
+	    			{
+	    				Bukkit.broadcastMessage(ChatColor.GREEN + p.getDisplayName() + ChatColor.GREEN + " used " + ChatColor.ITALIC + "/youtube " + ChatColor.RESET + ChatColor.GREEN + "to get the YouTube page for " + (plugin.getConfig().getString("server-name")));
+		    			plugin.getConfig().set("last-used.youtube" + sender.getName(), now);
+	    			}
 	    		}
 	    		
 	    		// If this has happened, the function will return true. 

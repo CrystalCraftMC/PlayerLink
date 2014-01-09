@@ -9,6 +9,8 @@ import org.bukkit.entity.Player;
 
 public class DynMap implements CommandExecutor
 {
+	private static long DAY_IN_MILLIS = 1000 * 60 * 60 * 24;
+	
 	Main plugin;
 	public DynMap(Main plugin)
 	{
@@ -39,7 +41,13 @@ public class DynMap implements CommandExecutor
 	    		p.sendMessage(ChatColor.GOLD + "=-=-=-=-> " + ChatColor.YELLOW + plugin.getConfig().getString("server-name") + "'s DynMap page!" + ChatColor.GOLD + " <-=-=-=-=");
 	    		if (plugin.getConfig().getBoolean("dynmap.enable-broadcast"))
 	    		{
-	    			Bukkit.broadcastMessage(ChatColor.GREEN + p.getDisplayName() + ChatColor.GREEN + " used " + ChatColor.ITALIC + "/dynmap " + ChatColor.RESET + ChatColor.GREEN + "to get the DynMap link for " + (plugin.getConfig().getString("server-name")));
+	    			long last = plugin.getConfig().getLong("last-used.dynmap" + sender.getName(), 0L);
+	    			long now = System.currentTimeMillis();
+	    			if ((now - last) > DAY_IN_MILLIS)
+	    			{
+	    				Bukkit.broadcastMessage(ChatColor.GREEN + p.getDisplayName() + ChatColor.GREEN + " used " + ChatColor.ITALIC + "/dynmap " + ChatColor.RESET + ChatColor.GREEN + "to get the DynMap link for " + (plugin.getConfig().getString("server-name")));
+	    				plugin.getConfig().set("last-used.dynmap" + sender.getName(), now);
+	    			}
 	    		}
 	    		
 	    		// If this has happened, the function will return true. 
