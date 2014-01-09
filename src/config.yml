@@ -7,10 +7,15 @@
 #
 # Give me a diamond on PlanetMinecraft!
 # http://www.planetminecraft.com/mod/bukkit-playerlink
-#
 
+
+
+# Choose whether you want this plugin to download the latest
+# version from BukkitDev automatically.
 auto-update: true
+
 server-name: A Minecraft Server
+
 website:
   url: http://minecraft.net
   enable-broadcast: true
@@ -51,6 +56,9 @@ link:
   name: Encyclopedia
   url: http://google.com
   enable-broadcast: true
+
+# Logs of who has typed a command to prevent people from
+# spamming the broadcast. Please don't mess with these.
 last-used:
   website: []
   vote: []
