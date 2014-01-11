@@ -26,8 +26,8 @@ public class DynMap implements CommandExecutor
 		// If the sender of the command has this permission...
 		if(p.hasPermission("playerlink.dynmap"))
 		{
-			// ...and the player typed /dynmap...
-	    	if (cmd.getName().equalsIgnoreCase("dynmap"))
+			// ...and the player typed /map...
+	    	if (cmd.getName().equalsIgnoreCase("map"))
 	    	{
 	    		// ...and the sender of the command is NOT a player...
 	    		if (!(sender instanceof Player))
@@ -45,7 +45,7 @@ public class DynMap implements CommandExecutor
 	    			long now = System.currentTimeMillis();
 	    			if ((now - last) > DAY_IN_MILLIS)
 	    			{
-	    				Bukkit.broadcastMessage(ChatColor.GREEN + p.getDisplayName() + ChatColor.GREEN + " used " + ChatColor.ITALIC + "/dynmap " + ChatColor.RESET + ChatColor.GREEN + "to get the DynMap link for " + (plugin.getConfig().getString("server-name")));
+	    				Bukkit.broadcastMessage(ChatColor.GREEN + p.getDisplayName() + ChatColor.GREEN + " used " + ChatColor.ITALIC + "/map " + ChatColor.RESET + ChatColor.GREEN + "to get the DynMap link for " + (plugin.getConfig().getString("server-name")));
 	    				plugin.getConfig().set("last-used.dynmap" + sender.getName(), now);
 	    			}
 	    		}

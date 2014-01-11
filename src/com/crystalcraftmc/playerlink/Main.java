@@ -47,7 +47,7 @@ public final class Main extends JavaPlugin
 		
 		getCommand("voice").setExecutor(new Voice(this));
 		
-		getCommand("dynmap").setExecutor(new DynMap(this));
+		getCommand("map").setExecutor(new DynMap(this));
 		
 		getCommand("wiki").setExecutor(new Wiki(this));
 		
