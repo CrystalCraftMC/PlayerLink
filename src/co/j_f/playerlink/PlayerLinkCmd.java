@@ -1,4 +1,4 @@
-package com.crystalcraftmc.playerlink;
+package co.j_f.playerlink;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;

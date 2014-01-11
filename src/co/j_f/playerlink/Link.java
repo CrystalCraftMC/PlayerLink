@@ -1,4 +1,4 @@
-package com.crystalcraftmc.playerlink;
+package co.j_f.playerlink;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -7,16 +7,16 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class Voice implements CommandExecutor
+public class Link implements CommandExecutor
 {
 	private static long DAY_IN_MILLIS = 1000 * 60 * 60 * 24;
 	
 	Main plugin;
-	public Voice(Main plugin)
+	public Link(Main plugin)
 	{
 		this.plugin = plugin;
 	}
-
+	
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
 	{
@@ -24,10 +24,10 @@ public class Voice implements CommandExecutor
 		Player p = (Player) sender;
 		
 		// If the sender of the command has this permission...
-		if(p.hasPermission("playerlink.voice"))
+		if(p.hasPermission("playerlink.link"))
 		{
-			// ...and the player typed /voice...
-	    	if (cmd.getName().equalsIgnoreCase("voice"))
+			// ...and the player typed /link...
+	    	if (cmd.getName().equalsIgnoreCase("link"))
 	    	{
 	    		// ...and the sender of the command is NOT a player...
 	    		if (!(sender instanceof Player))
@@ -36,17 +36,17 @@ public class Voice implements CommandExecutor
 	    			sender.sendMessage("This command can only be run by a player.");
 	    		}
 	    		
-	    		p.sendMessage(ChatColor.GOLD + "=-=-=-=-> " + ChatColor.YELLOW + plugin.getConfig().getString("server-name") + "'s Voice Server IP!" + ChatColor.GOLD + " <-=-=-=-=");
-	    		p.sendMessage(ChatColor.GOLD + "[" + ChatColor.YELLOW + "PL" + ChatColor.GOLD + "] " + ChatColor.AQUA + plugin.getConfig().getString("voice.url"));
-	    		p.sendMessage(ChatColor.GOLD + "=-=-=-=-> " + ChatColor.YELLOW + plugin.getConfig().getString("server-name") + "'s Voice Server IP!" + ChatColor.GOLD + " <-=-=-=-=");
-	    		if (plugin.getConfig().getBoolean("voice.enable-broadcast"))
+	    		p.sendMessage(ChatColor.GOLD + "=-=-=-=-> " + ChatColor.YELLOW + plugin.getConfig().getString("server-name") + "'s " + plugin.getConfig().getString("link.name") + "!" + ChatColor.GOLD + " <-=-=-=-=");
+	    		p.sendMessage(ChatColor.GOLD + "[" + ChatColor.YELLOW + "PL" + ChatColor.GOLD + "] " + ChatColor.AQUA + plugin.getConfig().getString("link.url"));
+	    		p.sendMessage(ChatColor.GOLD + "=-=-=-=-> " + ChatColor.YELLOW + plugin.getConfig().getString("server-name") + "'s " + plugin.getConfig().getString("link.name") + "!" + ChatColor.GOLD + " <-=-=-=-=");
+	    		if (plugin.getConfig().getBoolean("link.enable-broadcast"))
 	    		{
-	    			long last = plugin.getConfig().getLong("last-used.voice" + sender.getName(), 0L);
+	    			long last = plugin.getConfig().getLong("last-used.link" + sender.getName(), 0L);
 	    			long now = System.currentTimeMillis();
 	    			if ((now - last) > DAY_IN_MILLIS)
 	    			{
-	    				Bukkit.broadcastMessage(ChatColor.GREEN + p.getDisplayName() + ChatColor.GREEN + " used " + ChatColor.ITALIC + "/voice " + ChatColor.RESET + ChatColor.GREEN + "to get the voice server IP for " + (plugin.getConfig().getString("server-name")));
-	    				plugin.getConfig().set("last-used.voice" + sender.getName(), now);
+	    				Bukkit.broadcastMessage(ChatColor.GREEN + p.getDisplayName() + ChatColor.GREEN + " used " + ChatColor.ITALIC + "/link " + ChatColor.RESET + ChatColor.GREEN + "to get the " + (plugin.getConfig().getString("link.name")) +  " link for " + (plugin.getConfig().getString("server-name")));
+	    				plugin.getConfig().set("last-used.link" + sender.getName(), now);
 	    			}
 	    		}
 	    		

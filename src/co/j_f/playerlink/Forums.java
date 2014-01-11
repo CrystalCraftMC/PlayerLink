@@ -1,4 +1,4 @@
-package com.crystalcraftmc.playerlink;
+package co.j_f.playerlink;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -7,12 +7,12 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class Vote implements CommandExecutor
+public class Forums implements CommandExecutor
 {
 	private static long DAY_IN_MILLIS = 1000 * 60 * 60 * 24;
 	
 	Main plugin;
-	public Vote(Main plugin)
+	public Forums(Main plugin)
 	{
 		this.plugin = plugin;
 	}
@@ -24,10 +24,10 @@ public class Vote implements CommandExecutor
 		Player p = (Player) sender;
 		
 		// If the sender of the command has this permission...
-		if(p.hasPermission("playerlink.vote"))
+		if(p.hasPermission("playerlink.forums"))
 		{
-			// ...and the player typed /vote...
-	    	if (cmd.getName().equalsIgnoreCase("vote"))
+			// ...and the player typed /forums...
+	    	if (cmd.getName().equalsIgnoreCase("forums"))
 	    	{
 	    		// ...and the sender of the command is NOT a player...
 	    		if (!(sender instanceof Player))
@@ -36,20 +36,21 @@ public class Vote implements CommandExecutor
 	    			sender.sendMessage("This command can only be run by a player.");
 	    		}
 	    		
-	    		p.sendMessage(ChatColor.GOLD + "=-=-=-=-> " + ChatColor.YELLOW + "Vote for " + plugin.getConfig().getString("server-name") + ChatColor.GOLD + " <-=-=-=-=");
-	    		p.sendMessage(ChatColor.GOLD + "[" + ChatColor.YELLOW + "PL" + ChatColor.GOLD + "] " + ChatColor.AQUA + plugin.getConfig().getString("vote.url"));
-	    		p.sendMessage(ChatColor.GOLD + "=-=-=-=-> " + ChatColor.YELLOW + "Vote for " + plugin.getConfig().getString("server-name") + ChatColor.GOLD + " <-=-=-=-=");
-	    		if (plugin.getConfig().getBoolean("vote.enable-broadcast"))
+	    		p.sendMessage(ChatColor.GOLD + "=-=-=-=-> " + ChatColor.YELLOW + plugin.getConfig().getString("server-name") + "'s Forums!" + ChatColor.GOLD + " <-=-=-=-=");
+	    		p.sendMessage(ChatColor.GOLD + "[" + ChatColor.YELLOW + "PL" + ChatColor.GOLD + "] " + ChatColor.AQUA + plugin.getConfig().getString("forums.url"));
+	    		p.sendMessage(ChatColor.GOLD + "=-=-=-=-> " + ChatColor.YELLOW + plugin.getConfig().getString("server-name") + "'s Forums!" + ChatColor.GOLD + " <-=-=-=-=");
+	    		if (plugin.getConfig().getBoolean("forums.enable-broadcast"))
 	    		{
-	    			long last = plugin.getConfig().getLong("last-used.vote" + sender.getName(), 0L);
+	    			long last = plugin.getConfig().getLong("last-used.forums" + sender.getName(), 0L);
 	    			long now = System.currentTimeMillis();
 	    			if ((now - last) > DAY_IN_MILLIS)
 	    			{
-	    				Bukkit.broadcastMessage(ChatColor.GREEN + p.getDisplayName() + ChatColor.GREEN + " used " + ChatColor.ITALIC + "/vote " + ChatColor.RESET + ChatColor.GREEN + "to get a voting link for " + (plugin.getConfig().getString("server-name")));
-	    				plugin.getConfig().set("last-used.vote" + sender.getName(), now);
+	    				Bukkit.broadcastMessage(ChatColor.GREEN + p.getDisplayName() + ChatColor.GREEN + " used " + ChatColor.ITALIC + "/forums " + ChatColor.RESET + ChatColor.GREEN + "to get the forum link for " + (plugin.getConfig().getString("server-name")));
+	    				plugin.getConfig().set("last-used.forums" + sender.getName(), now);
 	    			}
 	    		}
-	    		// If this has happened, the function will return true.
+	    		
+	    		// If this has happened, the function will return true. 
 	    		return true;
 	    	}
 	    	
@@ -59,7 +60,7 @@ public class Vote implements CommandExecutor
 	    		// ...do not let the command be run.
     			p.sendMessage("You do not have permission to use that command.");
 			}
-		}
+    	}
     	// If this hasn't happened, a value of false will be returned.
     	return false;
 	}
