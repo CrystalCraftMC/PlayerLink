@@ -3,19 +3,16 @@
 # Created by: jflory7
 # 
 # Official BukkitDev Page:
-# http://dev.bukkit.org/bukkit-plugins/playerlink/
+# http://s.ccmc.pw/PlayerLink
 #
 # Give me a diamond on PlanetMinecraft!
-# http://www.planetminecraft.com/mod/bukkit-playerlink
+# http://s.ccmc.pw/PlayerLink_PMC
+#
+# Get help on setting up the config.yml file here:
+# http://s.ccmc.pw/19Xa59i
 
-
-
-# Choose whether you want this plugin to download the latest
-# version from BukkitDev automatically.
 auto-update: true
-
 server-name: A Minecraft Server
-
 website:
   url: http://minecraft.net
   enable-broadcast: true
@@ -56,9 +53,6 @@ link:
   name: Encyclopedia
   url: http://google.com
   enable-broadcast: true
-
-# Logs of who has typed a command to prevent people from
-# spamming the broadcast. Please don't mess with these.
 last-used:
   website: []
   vote: []
