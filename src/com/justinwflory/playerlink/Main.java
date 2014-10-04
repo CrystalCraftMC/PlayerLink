@@ -29,19 +29,22 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.IOException;
 
 public final class Main extends JavaPlugin {
-    @SuppressWarnings("unused")
-    private FileConfiguration config;
-
     @Override
     public void onEnable() {
         getLogger().info("PlayerLink has been enabled!");
+        getLogger().info("------oooooo------o---------");
+        getLogger().info("-----o------o-----o---------");
+        getLogger().info("-----o------o-----o---------");
+        getLogger().info("-----ooooooo------o---------");
+        getLogger().info("-----o------------o---------");
+        getLogger().info("-----o------------o---------");
+        getLogger().info("-----o------------oooooooo--");
 
         // Submit plugin metrics
         try {
@@ -50,8 +53,6 @@ public final class Main extends JavaPlugin {
         } catch (IOException e) {
             // Failed to submit the stats :-(
         }
-
-        getCommand("shop").setExecutor(new Shop(this));
 
         getCommand("voice").setExecutor(new Voice(this));
 
@@ -72,11 +73,6 @@ public final class Main extends JavaPlugin {
         getCommand("link").setExecutor(new Link(this));
 
         getCommand("playerlink").setExecutor(new PlayerLinkCmd(this));
-    }
-
-        // Generate the config.yml
-        config = getConfig();
-        saveDefaultConfig();
 
         if (this.getConfig().getBoolean("auto-update")) {
             @SuppressWarnings("unused")
@@ -84,62 +80,59 @@ public final class Main extends JavaPlugin {
         }
     }
 
-    Player p = (Player) sender;
-
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        if (cmd.getName().equalsIgnoreCase("website") && sender.hasPermission("playerlink.website")) {
-            p.sendMessage(ChatColor.GOLD + "=-=-=-=-> " + ChatColor.YELLOW + plugin.getConfig().getString("server-name") + "'s Website Address!" + ChatColor.GOLD + " <-=-=-=-=");
-            p.sendMessage(ChatColor.GOLD + "[" + ChatColor.YELLOW + "PL" + ChatColor.GOLD + "] " + ChatColor.AQUA + plugin.getConfig().getString("website.url"));
-            p.sendMessage(ChatColor.GOLD + "=-=-=-=-> " + ChatColor.YELLOW + plugin.getConfig().getString("server-name") + "'s Website Address!" + ChatColor.GOLD + " <-=-=-=-=");
-            if (plugin.getConfig().getBoolean("website.enable-broadcast")) {
-                long last = plugin.getConfig().getLong("last-used.website" + sender.getName(), 0L);
+        Player p = (Player) sender;
+
+        if (cmd.getName().equalsIgnoreCase("website") && p.hasPermission("playerlink.website")) {
+            p.sendMessage(ChatColor.GOLD + "=-=-=-=-> " + ChatColor.YELLOW + this.getConfig().getString("server-name") + "'s Website Address!" + ChatColor.GOLD + " <-=-=-=-=");
+            p.sendMessage(ChatColor.GOLD + "[" + ChatColor.YELLOW + "PL" + ChatColor.GOLD + "] " + ChatColor.AQUA + this.getConfig().getString("website.url"));
+            p.sendMessage(ChatColor.GOLD + "=-=-=-=-> " + ChatColor.YELLOW + this.getConfig().getString("server-name") + "'s Website Address!" + ChatColor.GOLD + " <-=-=-=-=");
+            if (this.getConfig().getBoolean("website.enable-broadcast")) {
+                long last = this.getConfig().getLong("last-used.website" + sender.getName(), 0L);
                 long now = System.currentTimeMillis();
                 if ((now - last) > DAY_IN_MILLIS) {
-                    Bukkit.broadcastMessage(ChatColor.GREEN + p.getDisplayName() + ChatColor.GREEN + " used " + ChatColor.ITALIC + "/website " + ChatColor.RESET + ChatColor.GREEN + "to get the website link for " + (plugin.getConfig().getString("server-name")));
-                    plugin.getConfig().set("last-used.website" + sender.getName(), now);
+                    Bukkit.broadcastMessage(ChatColor.GREEN + p.getDisplayName() + ChatColor.GREEN + " used " + ChatColor.ITALIC + "/website " + ChatColor.RESET + ChatColor.GREEN + "to get the website link for " + (this.getConfig().getString("server-name")));
+                    this.getConfig().set("last-used.website" + sender.getName(), now);
                 }
             }
             return true;
-        } else {
-            p.sendMessage("You do not have permission to use that command.");
-        }
-        return false;
-    }
-
-    @Override
-    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        if (cmd.getName().equalsIgnoreCase("vote") && p.hasPermission("playerlink.vote")) {
-                p.sendMessage(ChatColor.GOLD + "=-=-=-=-> " + ChatColor.YELLOW + "Vote for " + plugin.getConfig().getString("server-name") + ChatColor.GOLD + " <-=-=-=-=");
-                p.sendMessage(ChatColor.GOLD + "[" + ChatColor.YELLOW + "PL" + ChatColor.GOLD + "] " + ChatColor.AQUA + plugin.getConfig().getString("vote.url"));
-                p.sendMessage(ChatColor.GOLD + "=-=-=-=-> " + ChatColor.YELLOW + "Vote for " + plugin.getConfig().getString("server-name") + ChatColor.GOLD + " <-=-=-=-=");
-                if (plugin.getConfig().getBoolean("vote.enable-broadcast")) {
-                    long last = plugin.getConfig().getLong("last-used.vote" + sender.getName(), 0L);
+        } else if (cmd.getName().equalsIgnoreCase("vote") && p.hasPermission("playerlink.vote")) {
+            p.sendMessage(ChatColor.GOLD + "=-=-=-=-> " + ChatColor.YELLOW + "Vote for " + this.getConfig().getString("server-name") + ChatColor.GOLD + " <-=-=-=-=");
+            p.sendMessage(ChatColor.GOLD + "[" + ChatColor.YELLOW + "PL" + ChatColor.GOLD + "] " + ChatColor.AQUA + this.getConfig().getString("vote.url"));
+            p.sendMessage(ChatColor.GOLD + "=-=-=-=-> " + ChatColor.YELLOW + "Vote for " + this.getConfig().getString("server-name") + ChatColor.GOLD + " <-=-=-=-=");
+            if (this.getConfig().getBoolean("vote.enable-broadcast")) {
+                long last = this.getConfig().getLong("last-used.vote" + sender.getName(), 0L);
                     long now = System.currentTimeMillis();
                     if ((now - last) > DAY_IN_MILLIS) {
-                        Bukkit.broadcastMessage(ChatColor.GREEN + p.getDisplayName() + ChatColor.GREEN + " used " + ChatColor.ITALIC + "/vote " + ChatColor.RESET + ChatColor.GREEN + "to get a voting link for " + (plugin.getConfig().getString("server-name")));
-                        plugin.getConfig().set("last-used.vote" + sender.getName(), now);
+                        Bukkit.broadcastMessage(ChatColor.GREEN + p.getDisplayName() + ChatColor.GREEN + " used " + ChatColor.ITALIC + "/vote " + ChatColor.RESET + ChatColor.GREEN + "to get a voting link for " + (this.getConfig().getString("server-name")));
+                        this.getConfig().set("last-used.vote" + sender.getName(), now);
                     }
                 }
                 return true;
-            } else {
-            p.sendMessage("You do not have permission to use that command.");
-        }
-        return false;
-    }
-
-    @Override
-    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        if(cmd.getName().equalsIgnoreCase("forums") && p.hasPermission("playerlink.forums")) {
-            p.sendMessage(ChatColor.GOLD + "=-=-=-=-> " + ChatColor.YELLOW + plugin.getConfig().getString("server-name") + "'s Forums!" + ChatColor.GOLD + " <-=-=-=-=");
-            p.sendMessage(ChatColor.GOLD + "[" + ChatColor.YELLOW + "PL" + ChatColor.GOLD + "] " + ChatColor.AQUA + plugin.getConfig().getString("forums.url"));
-            p.sendMessage(ChatColor.GOLD + "=-=-=-=-> " + ChatColor.YELLOW + plugin.getConfig().getString("server-name") + "'s Forums!" + ChatColor.GOLD + " <-=-=-=-=");
-            if (plugin.getConfig().getBoolean("forums.enable-broadcast")) {
-                long last = plugin.getConfig().getLong("last-used.forums" + sender.getName(), 0L);
+        } else if (cmd.getName().equalsIgnoreCase("forums") && p.hasPermission("playerlink.forums")) {
+            p.sendMessage(ChatColor.GOLD + "=-=-=-=-> " + ChatColor.YELLOW + this.getConfig().getString("server-name") + "'s Forums!" + ChatColor.GOLD + " <-=-=-=-=");
+            p.sendMessage(ChatColor.GOLD + "[" + ChatColor.YELLOW + "PL" + ChatColor.GOLD + "] " + ChatColor.AQUA + this.getConfig().getString("forums.url"));
+            p.sendMessage(ChatColor.GOLD + "=-=-=-=-> " + ChatColor.YELLOW + this.getConfig().getString("server-name") + "'s Forums!" + ChatColor.GOLD + " <-=-=-=-=");
+            if (this.getConfig().getBoolean("forums.enable-broadcast")) {
+                long last = this.getConfig().getLong("last-used.forums" + sender.getName(), 0L);
                 long now = System.currentTimeMillis();
                 if ((now - last) > DAY_IN_MILLIS) {
-                    Bukkit.broadcastMessage(ChatColor.GREEN + p.getDisplayName() + ChatColor.GREEN + " used " + ChatColor.ITALIC + "/forums " + ChatColor.RESET + ChatColor.GREEN + "to get the forum link for " + (plugin.getConfig().getString("server-name")));
-                    plugin.getConfig().set("last-used.forums" + sender.getName(), now);
+                    Bukkit.broadcastMessage(ChatColor.GREEN + p.getDisplayName() + ChatColor.GREEN + " used " + ChatColor.ITALIC + "/forums " + ChatColor.RESET + ChatColor.GREEN + "to get the forum link for " + (this.getConfig().getString("server-name")));
+                    this.getConfig().set("last-used.forums" + sender.getName(), now);
+                }
+            }
+            return true;
+        } else if (cmd.getName().equalsIgnoreCase("shop") && p.hasPermission("playerlink.shop")) {
+            p.sendMessage(ChatColor.GOLD + "=-=-=-=-> " + ChatColor.YELLOW + this.getConfig().getString("server-name") + "'s Server Shop!" + ChatColor.GOLD + " <-=-=-=-=");
+            p.sendMessage(ChatColor.GOLD + "[" + ChatColor.YELLOW + "PL" + ChatColor.GOLD + "] " + ChatColor.AQUA + this.getConfig().getString("shop.url"));
+            p.sendMessage(ChatColor.GOLD + "=-=-=-=-> " + ChatColor.YELLOW + this.getConfig().getString("server-name") + "'s Server Shop!" + ChatColor.GOLD + " <-=-=-=-=");
+            if (this.getConfig().getBoolean("shop.enable-broadcast")) {
+                long last = this.getConfig().getLong("last-used.shop" + sender.getName(), 0L);
+                long now = System.currentTimeMillis();
+                if ((now - last) > DAY_IN_MILLIS) {
+                    Bukkit.broadcastMessage(ChatColor.GREEN + p.getDisplayName() + ChatColor.GREEN + " used " + ChatColor.ITALIC + "/shop " + ChatColor.RESET + ChatColor.GREEN + "to get the server shop link for " + (this.getConfig().getString("server-name")));
+                    this.getConfig().set("last-used.shop" + sender.getName(), now);
                 }
             }
             return true;
