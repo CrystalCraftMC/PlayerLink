@@ -34,9 +34,9 @@ commands:
       usage: /voice
       permission: playerlink.voice
       permission-message: You don't have <permission>
-   dynmap:
+   map:
       description: Shows the link to a DynMap page you set.
-      usage: /dynmap
+      usage: /map
       permission: playerlink.dynmap
       permission-message: You don't have <permission>
    wiki:
