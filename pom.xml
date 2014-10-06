@@ -33,6 +33,32 @@
     <artifactId>PlayerLink</artifactId>
     <version>1.4</version>
 
+    <build>
+        <finalName>PlayerLink</finalName>
+        <directory>src/main/java/</directory>
+        <resources>
+            <resource>
+                <targetPath>.</targetPath>
+                <filtering>true</filtering>
+                <directory>${basedir}/src/main/resources/</directory>
+                <includes>
+                    <include>plugin.yml</include>
+                    <include>config.yml</include>
+                </includes>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
     <repositories>
         <repository>
             <id>bukkit-repo</id>
@@ -45,38 +71,9 @@
             <groupId>org.bukkit</groupId>
             <artifactId>bukkit</artifactId>
             <version>1.7.9-R0.2</version>
+            <type>jar</type>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
-
-    <profiles>
-        <profile>
-            <id>com.justinwflory.playerlink</id>
-            <build>
-                <finalName>PlayerLink</finalName>
-                <directory>src/main/java</directory>
-                <resources>
-                    <resource>
-                        <targetPath>.</targetPath>
-                        <filtering>true</filtering>
-                        <directory>${basedir}/src/main/resources/</directory>
-                        <includes>
-                            <include>plugin.yml</include>
-                            <include>config.yml</include>
-                        </includes>
-                    </resource>
-                </resources>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-compiler-plugin</artifactId>
-                        <version>2.3.2</version>
-                        <configuration>
-                            <source>1.7</source>
-                            <target>1.7</target>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
 
 </project>
