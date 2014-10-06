@@ -1,0 +1,69 @@
+# PlayerLink Configuration File
+# =============================
+# Created by: jflory7
+#
+# Official BukkitDev Page:
+# http://s.ccmc.pw/PlayerLink
+#
+# Give me a diamond on PlanetMinecraft!
+# http://s.ccmc.pw/PlayerLink_PMC
+#
+# Get help on setting up the config.yml file here:
+# http://s.ccmc.pw/19Xa59i
+
+auto-update: true
+server-name: A Minecraft Server
+website:
+  url: http://minecraft.net
+  enable-broadcast: true
+vote:
+  url: http://minecraft-server-list.com
+  enable-broadcast: true
+forums:
+  url: http://crystalcraftmc.com/forum
+  enable-broadcast: true
+shop:
+  url: http://buycraft.net
+  enable-broadcast: true
+voice:
+  url: http://mumble.info
+  enable-broadcast: true
+dynmap:
+  url: http://dev.bukkit.org/bukkit-plugins/dynmap
+  enable-broadcast: true
+wiki:
+  url: http://spigotmc.org/wiki
+  enable-broadcast: true
+facebook:
+  url: http://facebook.com
+  enable-broadcast: true
+twitter:
+  url: http://twitter.com
+  enable-broadcast: true
+youtube:
+  url: http://youtube.com
+  enable-broadcast: true
+google+:
+  url: http://plus.google.com
+  enable-broadcast: true
+instagram:
+  url: http://instagram.com
+  enable-broadcast: true
+link:
+  name: Encyclopedia
+  url: http://google.com
+  enable-broadcast: true
+last-used:
+  website: []
+  vote: []
+  forums: []
+  shop: []
+  voice: []
+  dynmap: []
+  wiki: []
+  facebook: []
+  twitter: []
+  youtube: []
+  google+: []
+  instagram: []
+  link: []
