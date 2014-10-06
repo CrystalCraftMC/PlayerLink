@@ -45,7 +45,8 @@ public final class Main extends JavaPlugin {
         getLogger().info("-----o------------o---------");
         getLogger().info("-----o------------o---------");
         getLogger().info("-----o------------oooooooo--");
-        System.out.println("This is a DEBUG test");
+
+        saveDefaultConfig();
 
         // Submit plugin metrics
         try {
