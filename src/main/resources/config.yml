@@ -20,7 +20,7 @@ vote:
   url: http://minecraft-server-list.com
   enable-broadcast: true
 forums:
-  url: http://crystalcraftmc.com/forum
+  url: http://crystalcraftmc.com/forums
   enable-broadcast: true
 shop:
   url: http://buycraft.net
@@ -50,8 +50,8 @@ instagram:
   url: http://instagram.com
   enable-broadcast: true
 link:
-  name: Encyclopedia
-  url: http://google.com
+  name: PlayerLink
+  url: http://s.ccmc.pw/PlayerLink
   enable-broadcast: true
 last-used:
   website: []

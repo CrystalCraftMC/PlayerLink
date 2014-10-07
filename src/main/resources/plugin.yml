@@ -3,7 +3,7 @@ description: PlayerLink is a Bukkit plugin designed to keep your players informe
 author: jflory7
 website: http://dev.bukkit.org/bukkit-plugins/playerlink/
 main: com.justinwflory.playerlink.Main
-version: 1.3.2.1
+version: 1.4
 
 commands:
    playerlink:
@@ -34,9 +34,9 @@ commands:
       usage: /voice
       permission: playerlink.voice
       permission-message: You don't have <permission>
-   dynmap:
+   map:
       description: Shows the link to a DynMap page you set.
-      usage: /dynmap
+      usage: /map
       permission: playerlink.dynmap
       permission-message: You don't have <permission>
    wiki:
