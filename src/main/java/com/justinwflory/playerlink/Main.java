@@ -31,7 +31,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
-
+import java.io.File;
 import java.io.IOException;
 
 public final class Main extends JavaPlugin {
@@ -46,7 +46,12 @@ public final class Main extends JavaPlugin {
         getLogger().info("-----o------------o---------");
         getLogger().info("-----o------------oooooooo--");
 
-        saveDefaultConfig();
+        try {
+            File database = new File(getDataFolder(), "config.yml");
+            if (!database.exists()) saveDefaultConfig();
+        } catch (Exception e1) {
+            e1.printStackTrace();
+        }
 
         // Submit plugin metrics
         try {
