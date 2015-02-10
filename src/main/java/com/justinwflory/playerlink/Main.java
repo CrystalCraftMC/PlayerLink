@@ -60,13 +60,40 @@ public final class Main extends JavaPlugin {
     }
 
     @Override
-    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         Player p = (Player) sender;
-		cmd = cmd.getName().toLowerCase();
-		serverName = this.getConfig().getString("server-name");
-		descriptor = this.getConfig().getString(cmd+".desc")
+		String cmd = command.getName().toLowerCase();
+		String serverName = this.getConfig().getString("server-name");
+		String descriptor = this.getConfig().getString(cmd+".desc")
 		
-		if (p.hasPermission("playerlink."+cmd)) {
+		if (cmd = "playerlink") {
+-            if (args.length != 1) {
+-                return false;
+-            } else if (args[0].equalsIgnoreCase("reload") && p.hasPermission("playerlink.reload")) {
+-                this.reloadConfig();
+-                sender.sendMessage(ChatColor.GREEN + "Configuration reloaded!");
+-                return true;
+-            } else if (args[0].equalsIgnoreCase("help") && p.hasPermission("playerlink.help")) {
+-                sender.sendMessage(ChatColor.GOLD + "=-=-=-=-=-=-=-> " + ChatColor.YELLOW + "PlayerLink Commands" + ChatColor.GOLD + " <-=-=-=-=-=-=-=");
+-                sender.sendMessage(ChatColor.GOLD + "[" + ChatColor.YELLOW + "PL" + ChatColor.GOLD + "] " + ChatColor.RED + "/playerlink help: " + ChatColor.GOLD + "Shows commands in the plugin.");
+-                sender.sendMessage(ChatColor.GOLD + "[" + ChatColor.YELLOW + "PL" + ChatColor.GOLD + "] " + ChatColor.RED + "/website: " + ChatColor.GOLD + "Displays a link to the server website.");
+-                sender.sendMessage(ChatColor.GOLD + "[" + ChatColor.YELLOW + "PL" + ChatColor.GOLD + "] " + ChatColor.RED + "/vote: " + ChatColor.GOLD + "Displays a link to a voting website for this server.");
+-                sender.sendMessage(ChatColor.GOLD + "[" + ChatColor.YELLOW + "PL" + ChatColor.GOLD + "] " + ChatColor.RED + "/forums: " + ChatColor.GOLD + "Displays a link to the server forums.");
+-                sender.sendMessage(ChatColor.GOLD + "[" + ChatColor.YELLOW + "PL" + ChatColor.GOLD + "] " + ChatColor.RED + "/shop: " + ChatColor.GOLD + "Displays a link to the server shop.");
+-                sender.sendMessage(ChatColor.GOLD + "[" + ChatColor.YELLOW + "PL" + ChatColor.GOLD + "] " + ChatColor.RED + "/voice: " + ChatColor.GOLD + "Displays an IP to the voice server.");
+-                sender.sendMessage(ChatColor.GOLD + "[" + ChatColor.YELLOW + "PL" + ChatColor.GOLD + "] " + ChatColor.RED + "/dynmap: " + ChatColor.GOLD + "Displays a link to the server DynMap.");
+-                sender.sendMessage(ChatColor.GOLD + "[" + ChatColor.YELLOW + "PL" + ChatColor.GOLD + "] " + ChatColor.RED + "/wiki: " + ChatColor.GOLD + "Displays a link to the server wiki.");
+-                sender.sendMessage(ChatColor.GOLD + "[" + ChatColor.YELLOW + "PL" + ChatColor.GOLD + "] " + ChatColor.RED + "/facebook: " + ChatColor.GOLD + "Displays a link to the server Facebook page.");
+-                sender.sendMessage(ChatColor.GOLD + "[" + ChatColor.YELLOW + "PL" + ChatColor.GOLD + "] " + ChatColor.RED + "/twitter: " + ChatColor.GOLD + "Displays a link to the server Twitter page.");
+-                sender.sendMessage(ChatColor.GOLD + "[" + ChatColor.YELLOW + "PL" + ChatColor.GOLD + "] " + ChatColor.RED + "/youtube: " + ChatColor.GOLD + "Displays a link to the server YouTube page.");
+-                sender.sendMessage(ChatColor.GOLD + "[" + ChatColor.YELLOW + "PL" + ChatColor.GOLD + "] " + ChatColor.RED + "/google+: " + ChatColor.GOLD + "Displays a link to the server Google+ page.");
+-                sender.sendMessage(ChatColor.GOLD + "[" + ChatColor.YELLOW + "PL" + ChatColor.GOLD + "] " + ChatColor.RED + "/instagram: " + ChatColor.GOLD + "Displays a link to the server Instagram page");
+-                sender.sendMessage(ChatColor.GOLD + "[" + ChatColor.YELLOW + "PL" + ChatColor.GOLD + "] " + ChatColor.RED + "/link: " + ChatColor.GOLD + "Displays a link to whatever an admin has set.");
+-                sender.sendMessage(ChatColor.GOLD + "[" + ChatColor.YELLOW + "PL" + ChatColor.GOLD + "] " + ChatColor.RED + "/playerlink reload: " + ChatColor.GOLD + "Reload the configuration.");
+-                sender.sendMessage(ChatColor.GOLD + "=-=-=-=-=-=-=-> " + ChatColor.YELLOW + "PlayerLink Commands" + ChatColor.GOLD + " <-=-=-=-=-=-=-=");
+-            }
+-            return true;
+		} else if (p.hasPermission("playerlink."+cmd)) {
 			p.sendMessage(ChatColor.GOLD + "=-=-=-=-> " + ChatColor.YELLOW + serverName + "'s " + descriptor + "!" + ChatColor.GOLD + " <-=-=-=-=");
             p.sendMessage(ChatColor.GOLD + "[" + ChatColor.YELLOW + "PL" + ChatColor.GOLD + "] " + ChatColor.AQUA + this.getConfig().getString(cmd+".url"));
             p.sendMessage(ChatColor.GOLD + "=-=-=-=-> " + ChatColor.YELLOW + serverName + "'s " + descriptor + "!" + ChatColor.GOLD + " <-=-=-=-=");
