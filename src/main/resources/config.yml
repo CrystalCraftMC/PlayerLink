@@ -12,7 +12,7 @@
 # http://s.ccmc.pw/19Xa59i
 
 auto-update: true
-server-name: CrystalCraft
+server-name: A Minecraft Server
 website:
   url: http://minecraft.net
   enable-broadcast: true
