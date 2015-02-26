@@ -24,33 +24,17 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
-import java.io.IOException;
 
 public final class Main extends JavaPlugin {
     @Override
     public void onEnable() {
         getLogger().info("PlayerLink has been enabled!");
-        getLogger().info("------oooooo------o---------");
-        getLogger().info("-----o------o-----o---------");
-        getLogger().info("-----o------o-----o---------");
-        getLogger().info("-----ooooooo------o---------");
-        getLogger().info("-----o------------o---------");
-        getLogger().info("-----o------------o---------");
-        getLogger().info("-----o------------oooooooo--");
 
         try {
             File database = new File(getDataFolder(), "config.yml");
             if (!database.exists()) saveDefaultConfig();
         } catch (Exception e1) {
             e1.printStackTrace();
-        }
-
-        // Submit plugin metrics
-        try {
-            Metrics metrics = new Metrics(this);
-            metrics.start();
-        } catch (IOException e) {
-            // Failed to submit the stats :-(
         }
 
         if (this.getConfig().getBoolean("auto-update")) {
