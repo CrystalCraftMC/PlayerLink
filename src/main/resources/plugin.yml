@@ -1,5 +1,5 @@
 name: PlayerLink
-main: com.justinwflory.playerlink.Main
+main: com.justinwflory.playerlink.PlayerLink
 version: 1.4.2
 description: PlayerLink is a Bukkit plugin designed to keep your players informed about your server.
 author: jflory7
