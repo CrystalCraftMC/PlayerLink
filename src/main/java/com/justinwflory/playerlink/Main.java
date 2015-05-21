@@ -25,19 +25,17 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 public final class Main extends JavaPlugin {
+    
+    private final long DAY_IN_MILLIS = TimeUnit.DAYS.toMillis(1);
+    
     @Override
     public void onEnable() {
         getLogger().info("PlayerLink has been enabled!");
-
-        try {
-            File database = new File(getDataFolder(), "config.yml");
-            if (!database.exists()) saveDefaultConfig();
-        } catch (Exception e1) {
-            e1.printStackTrace();
-        }
-
+        
+        saveDefaultConfig();
         try {
             MetricsLite metrics = new MetricsLite(this);
             metrics.start();
@@ -261,6 +259,4 @@ public final class Main extends JavaPlugin {
     public void onDisable() {
         getLogger().info("PlayerLink has been disabled!");
     }
-
-    private static long DAY_IN_MILLIS = 1000 * 60 * 60 * 24;
 }
