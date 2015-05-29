@@ -1,4 +1,4 @@
-PlayerLink
+PlayerLink [![Build Status](https://travis-ci.org/jflory7/PlayerLink.svg)](https://travis-ci.org/jflory7/PlayerLink)
 ==========
 
 ### Created by: jflory7
