@@ -28,6 +28,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.io.IOException;
+
 /**
  *
  * @author EDawg878 <EDawg878@gmail.com>
@@ -73,6 +75,13 @@ public class PlayerLink extends JavaPlugin implements Listener, CommandExecutor 
 
     @Override
     public void onEnable() {
+        try {
+            MetricsLite metrics = new MetricsLite(this);
+            metrics.start();
+        } catch (IOException e) {
+            // Failed to submit the stats :-(
+        }
+
         setupConfig();
         registerCommands();
         getServer().getPluginManager().registerEvents(this, this);
