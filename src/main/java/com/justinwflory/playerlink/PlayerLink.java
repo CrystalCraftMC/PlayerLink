@@ -16,7 +16,6 @@
 
 package com.justinwflory.playerlink;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -36,7 +35,6 @@ import java.io.IOException;
  */
 public class PlayerLink extends JavaPlugin implements Listener, CommandExecutor {
 
-    @AllArgsConstructor
     public enum PlayerLinkType {
 
         WEBSITE("website", "http://minecraft.net", true),

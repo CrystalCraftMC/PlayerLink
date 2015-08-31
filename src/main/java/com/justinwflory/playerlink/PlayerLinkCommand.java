@@ -17,7 +17,6 @@
 package com.justinwflory.playerlink;
 
 import com.justinwflory.playerlink.PlayerLink.PlayerLinkType;
-import lombok.AllArgsConstructor;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -30,7 +29,6 @@ import java.util.concurrent.TimeUnit;
  *
  * @author EDawg878 <EDawg878@gmail.com>
  */
-@AllArgsConstructor
 public class PlayerLinkCommand implements CommandExecutor {
 
     private static final String BROADCAST = ChatColor.GREEN + "%s" + ChatColor.GREEN + " used " + ChatColor.ITALIC + "%s " + ChatColor.RESET + ChatColor.GREEN + "to get the %s link for %s";
