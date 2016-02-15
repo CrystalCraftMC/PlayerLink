@@ -16,43 +16,55 @@ server-name: A Minecraft Server
 website:
   url: http://minecraft.net
   enable-broadcast: true
+  desc: website address
 vote:
   url: http://minecraft-server-list.com
   enable-broadcast: true
+  desc: voting link
 forums:
   url: http://crystalcraftmc.com/forums
   enable-broadcast: true
+  desc: forum link
 shop:
   url: http://buycraft.net
   enable-broadcast: true
+  desc: server shop
 voice:
   url: http://mumble.info
   enable-broadcast: true
+  desc: voice server IP
 dynmap:
   url: http://dev.bukkit.org/bukkit-plugins/dynmap
   enable-broadcast: true
+  desc: Dynmap link
 wiki:
   url: http://spigotmc.org/wiki
   enable-broadcast: true
+  desc: wiki link
 facebook:
   url: http://facebook.com
   enable-broadcast: true
+  desc: Facebook page
 twitter:
   url: http://twitter.com
   enable-broadcast: true
+  desc: Twitter page
 youtube:
   url: http://youtube.com
   enable-broadcast: true
+  desc: YouTube page
 google+:
   url: http://plus.google.com
   enable-broadcast: true
+  desc: Google+ page
 instagram:
   url: http://instagram.com
   enable-broadcast: true
+  desc: Instagram page
 link:
-  name: PlayerLink
   url: http://s.ccmc.pw/PlayerLink
   enable-broadcast: true
+  desc: PlayerLink plugin
 last-used:
   website: []
   vote: []
